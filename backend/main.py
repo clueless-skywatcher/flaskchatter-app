@@ -6,10 +6,12 @@ from models import UserModel
 from passlib.hash import pbkdf2_sha512
 from flask_login import LoginManager, login_user, logout_user, current_user, login_required
 from time import localtime, strftime
+import os
+
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '1lh5gb414u1u4g5ku3g'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://postgres:postgres@127.0.0.1:5432/messagedb'
+app.secret_key = os.environ.get('SECRET')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 
 login_manager = LoginManager(app = app)
 login_manager.init_app(app)
@@ -84,4 +86,4 @@ def leave(data):
     }, room = data['room'])
 
 if __name__ == "__main__":
-    socketio.run(app, debug = True)
+    app.run()
