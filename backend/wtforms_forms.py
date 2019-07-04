@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import Required, Length, EqualTo, ValidationError
+from wtforms.validators import Required, Length, EqualTo, ValidationError, Email
 from models import UserModel
 from passlib.hash import pbkdf2_sha512
 
@@ -8,7 +8,8 @@ from passlib.hash import pbkdf2_sha512
 class RegForm(FlaskForm):
     name = StringField('name', validators = [Required(message = 'Name required')])
     username = StringField('username', validators = [Required(message = 'Username required'), Length(min = 6, max = 20, message = 'Username must be between 6 to 20 characters')])
-    password = PasswordField('password', validators = [Required(message = 'Password required')])
+    email = StringField('email', validators = [Required(message = 'Email Required'), Email(message = 'Please enter proper email format')])
+    password = PasswordField('password', validators = [Required(message = 'Password required')])    
     confirm_password = PasswordField('confirm_password', validators = [EqualTo('password', message = 'Passwords must be equal')])
     submit_button = SubmitField('Create User')
 

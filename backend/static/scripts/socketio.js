@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const span_msg = document.createElement('span')
         span_msg.className = 'message-text'
 
-        if (data.username){
+        if (data.username && data.msg){
             span_usn.innerHTML = data.username
             span_time.innerHTML = data.timestamp
             span_msg.innerHTML = data.msg

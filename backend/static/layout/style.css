@@ -3,6 +3,16 @@ body
     font-family: Algerian;
 }
 
+#registration-form{
+    width: 50%;
+    margin-left : 25%;
+    background-color: brown;
+}
+
+.form-control{
+    padding: 3px;
+}
+
 .wrapper {
     display: flex;
 }
@@ -97,6 +107,8 @@ p {
     padding-left: 1em;
     padding-right: 1em;
     bottom: 0;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 input[type=text]:focus{

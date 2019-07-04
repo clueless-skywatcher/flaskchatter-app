@@ -28,12 +28,13 @@ def index():
     regform = RegForm()
     if regform.validate_on_submit():
         name = regform.name.data
+        email = regform.email.data
         username = regform.username.data
         password = regform.password.data
 
         hashed = pbkdf2_sha512.hash(password)
         
-        user = UserModel(name = name, username = username, password = hashed)
+        user = UserModel(name = name, email = email, username = username, password = hashed)
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('login'))
