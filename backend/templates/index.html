@@ -1,0 +1,23 @@
+{% from 'helper.html' import display %}
+
+{%extends 'prelogin.html'%}
+
+{%block title%}Registration{%endblock%}
+
+{% block content %}
+    <h1>
+        FlaskChatter - App
+    </h1>
+    <form action="{{url_for('index')}}", method="POST">
+        {{display(form.name, 'Name', autocomplete = 'off', autofocus = true)}}<br>
+        {{display(form.username, 'Username', autocomplete = 'off', autofocus = true)}}<br>
+        {{display(form.password, 'Password', autocomplete = 'off', autofocus = true)}}<br>
+        {{display(form.confirm_password, 'Confirm Password', autocomplete = 'off', autofocus = true)}}<br>
+
+        <div>
+            {{form.submit_button}}
+        </div>
+                
+        {{form.csrf_token}}
+    </form>
+{%endblock%}
