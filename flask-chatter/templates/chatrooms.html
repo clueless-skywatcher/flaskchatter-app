@@ -11,6 +11,7 @@
         </nav>
         <div id = 'main-section'>
             <nav id = 'sidebar'>
+                <!--Display the list of rooms received by the server-->
                 {% for room in rooms %}
                     <p class = 'select-room'>{{room | title}}</p>
                 {% endfor %}

@@ -3,6 +3,7 @@ from flask_login import UserMixin
 
 db = SQLAlchemy()
 
+# Plain user model equipped with a UserMixin that manages user data
 class UserModel(UserMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key = True)
